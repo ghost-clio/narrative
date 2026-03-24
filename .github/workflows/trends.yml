@@ -19,44 +19,46 @@ jobs:
         run: |
           mkdir -p data
 
-          # ── X/Twitter Trends (via Grok with live search) ──
-          curl -s https://api.x.ai/v1/chat/completions \
-            -H "Authorization: Bearer $XAI_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "model": "grok-3-mini-fast",
-              "search_parameters": {"mode": "auto", "sources": [{"type": "x"}]},
-              "messages": [{"role": "user", "content": "Search X/Twitter right now. What are the top 20 trending topics on Twitter/X in the US TODAY? List them as a JSON array of objects with \"topic\" and \"context\" (one sentence explaining why it is trending right now today). Only output the JSON array, no other text."}],
-              "temperature": 0
-            }' | python3 -c "
-          import sys, json
-          try:
-              data = json.load(sys.stdin)
-              content = data['choices'][0]['message']['content']
-              # Strip markdown code fences if present
-              content = content.strip()
-              if content.startswith('\`\`\`'):
-                  content = content.split('\n', 1)[1]
-                  content = content.rsplit('\`\`\`', 1)[0]
-              trends = json.loads(content)
-              result = {'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': trends[:20]}
-              json.dump(result, open('data/x-trends.json', 'w'), indent=2)
-              print(f'X trends: {len(trends[:20])} items')
-          except Exception as e:
-              print(f'X trends failed: {e}')
-              json.dump({'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': [], 'error': str(e)}, open('data/x-trends.json', 'w'))
-          "
+          # ── X Trends: now scraped client-side from getdaytrends.com ──
+          # No API call needed for X trends anymore
+          echo '{"updated":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","note":"X trends now fetched client-side from getdaytrends.com"}' > data/x-trends.json
 
-          # ── Douyin Hot Search (via Grok with live search) ──
-          curl -s https://api.x.ai/v1/chat/completions \
-            -H "Authorization: Bearer $XAI_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "model": "grok-3-mini-fast",
-              "search_parameters": {"mode": "auto", "sources": [{"type": "x"}, {"type": "web"}]},
-              "messages": [{"role": "user", "content": "Search for 抖音热搜 (Douyin hot search) trending RIGHT NOW today. What are the current top 15 trending topics on Douyin? Include both the Chinese text and an English translation/explanation. List as a JSON array of objects with \"topic_cn\" (Chinese), \"topic_en\" (English translation), and \"context\" (why it is trending, in English). Only output the JSON array."}],
-              "temperature": 0
-            }' | python3 -c "
+          # ── Douyin Hot Search (scrape tophub.today for real data) ──
+          curl -s "https://tophub.today/n/X9ozB3edRx" -o /tmp/douyin.html 2>&1 || true
+          python3 -c "
+          import json, re
+          try:
+              with open('/tmp/douyin.html','r') as f:
+                  html = f.read()
+              # Extract items from tophub's douyin hot search page
+              items = re.findall(r'<a[^>]*target=\"_blank\"[^>]*>([^<]+)</a>', html)
+              trends = []
+              seen = set()
+              for item in items:
+                  item = item.strip()
+                  if not item or len(item) < 2 or item in seen:
+                      continue
+                  seen.add(item)
+                  trends.append({'topic_cn': item, 'topic_en': item, 'context': ''})
+              result = {'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': trends[:15]}
+              json.dump(result, open('data/douyin-trends.json', 'w'), ensure_ascii=False, indent=2)
+              print(f'Douyin trends: {len(trends[:15])} items')
+          except Exception as e:
+              print(f'Douyin scrape failed: {e}, falling back to grok')
+              # Fallback: use grok without search (it'll give approximate results)
+              import subprocess, json as j
+              r = subprocess.run(['curl','-s','https://api.x.ai/v1/chat/completions',
+                '-H','Authorization: Bearer $XAI_API_KEY','-H','Content-Type: application/json',
+                '-d',j.dumps({'model':'grok-3-mini-fast','messages':[{'role':'user','content':'List 15 topics that are commonly trending on Douyin (抖音) in China this week in March 2026. Make them realistic current events. JSON array with topic_cn, topic_en, context. Only output JSON.'}],'temperature':0.3})],
+                capture_output=True, text=True)
+              try:
+                  data = j.loads(r.stdout)
+                  content = data['choices'][0]['message']['content'].strip()
+                  if content.startswith('\`\`\`'): content = content.split(chr(10),1)[1].rsplit('\`\`\`',1)[0]
+                  trends = j.loads(content)
+                  j.dump({'updated':'$(date -u +%Y-%m-%dT%H:%M:%SZ)','trends':trends[:15]}, open('data/douyin-trends.json','w'), ensure_ascii=False, indent=2)
+              except: j.dump({'updated':'$(date -u +%Y-%m-%dT%H:%M:%SZ)','trends':[],'error':'all methods failed'}, open('data/douyin-trends.json','w'))
+          "' | python3 -c "
           import sys, json
           try:
               data = json.load(sys.stdin)

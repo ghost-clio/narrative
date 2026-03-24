@@ -218,21 +218,27 @@ async function fetchWikipediaSpikes() {
   return items.slice(0, 25);
 }
 
-// X Trends — from GitHub Actions cached JSON
+// X Trends — scraped from getdaytrends.com (real-time, no API key)
 async function fetchXTrends() {
-  const url = 'https://raw.githubusercontent.com/ghost-clio/narrative/main/data/x-trends.json';
-  const resp = await fetch(url + '?t=' + Date.now(), { signal: AbortSignal.timeout(10000) });
-  const data = await resp.json();
-  if (!data.trends?.length) return [];
+  const html = await fetchViaProxy('https://getdaytrends.com/united-states/');
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const items = [];
 
-  const updated = data.updated ? new Date(data.updated) : new Date();
-  return data.trends.map(t => ({
-    title: t.topic,
-    link: `https://x.com/search?q=${encodeURIComponent(t.topic)}`,
-    source: 'X Trending',
-    meta: t.context || '',
-    date: updated,
-  }));
+  doc.querySelectorAll('a[href*="/trend/"]').forEach(a => {
+    const topic = a.textContent?.trim();
+    if (!topic) return;
+    // Deduplicate
+    if (items.find(i => i.title === topic)) return;
+    items.push({
+      title: topic,
+      link: `https://x.com/search?q=${encodeURIComponent(topic)}`,
+      source: 'X Trending US',
+      date: new Date(),
+    });
+  });
+
+  return items.slice(0, 25);
 }
 
 // Douyin Trends — from GitHub Actions cached JSON
