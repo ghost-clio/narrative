@@ -1,7 +1,7 @@
 name: Fetch Trends
 on:
   schedule:
-    - cron: '*/15 * * * *'  # every 15 min
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -13,68 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch X trends + Douyin hot search
-        env:
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+      - name: Fetch Douyin trends
         run: |
           mkdir -p data
+          python3 scripts/fetch-douyin.py
 
-          # ── X Trends: now scraped client-side from getdaytrends.com ──
-          # No API call needed for X trends anymore
-          echo '{"updated":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","note":"X trends now fetched client-side from getdaytrends.com"}' > data/x-trends.json
-
-          # ── Douyin Hot Search (scrape tophub.today for real data) ──
-          curl -s "https://tophub.today/n/X9ozB3edRx" -o /tmp/douyin.html 2>&1 || true
-          python3 -c "
-          import json, re
-          try:
-              with open('/tmp/douyin.html','r') as f:
-                  html = f.read()
-              # Extract items from tophub's douyin hot search page
-              items = re.findall(r'<a[^>]*target=\"_blank\"[^>]*>([^<]+)</a>', html)
-              trends = []
-              seen = set()
-              for item in items:
-                  item = item.strip()
-                  if not item or len(item) < 2 or item in seen:
-                      continue
-                  seen.add(item)
-                  trends.append({'topic_cn': item, 'topic_en': item, 'context': ''})
-              result = {'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': trends[:15]}
-              json.dump(result, open('data/douyin-trends.json', 'w'), ensure_ascii=False, indent=2)
-              print(f'Douyin trends: {len(trends[:15])} items')
-          except Exception as e:
-              print(f'Douyin scrape failed: {e}, falling back to grok')
-              # Fallback: use grok without search (it'll give approximate results)
-              import subprocess, json as j
-              r = subprocess.run(['curl','-s','https://api.x.ai/v1/chat/completions',
-                '-H','Authorization: Bearer $XAI_API_KEY','-H','Content-Type: application/json',
-                '-d',j.dumps({'model':'grok-3-mini-fast','messages':[{'role':'user','content':'List 15 topics that are commonly trending on Douyin (抖音) in China this week in March 2026. Make them realistic current events. JSON array with topic_cn, topic_en, context. Only output JSON.'}],'temperature':0.3})],
-                capture_output=True, text=True)
-              try:
-                  data = j.loads(r.stdout)
-                  content = data['choices'][0]['message']['content'].strip()
-                  if content.startswith('\`\`\`'): content = content.split(chr(10),1)[1].rsplit('\`\`\`',1)[0]
-                  trends = j.loads(content)
-                  j.dump({'updated':'$(date -u +%Y-%m-%dT%H:%M:%SZ)','trends':trends[:15]}, open('data/douyin-trends.json','w'), ensure_ascii=False, indent=2)
-              except: j.dump({'updated':'$(date -u +%Y-%m-%dT%H:%M:%SZ)','trends':[],'error':'all methods failed'}, open('data/douyin-trends.json','w'))
-          "' | python3 -c "
-          import sys, json
-          try:
-              data = json.load(sys.stdin)
-              content = data['choices'][0]['message']['content']
-              content = content.strip()
-              if content.startswith('\`\`\`'):
-                  content = content.split('\n', 1)[1]
-                  content = content.rsplit('\`\`\`', 1)[0]
-              trends = json.loads(content)
-              result = {'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': trends[:15]}
-              json.dump(result, open('data/douyin-trends.json', 'w'), indent=2)
-              print(f'Douyin trends: {len(trends[:15])} items')
-          except Exception as e:
-              print(f'Douyin trends failed: {e}')
-              json.dump({'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': [], 'error': str(e)}, open('data/douyin-trends.json', 'w'))
-          "
+      - name: Update X trends note
+        run: |
+          echo '{"updated":"'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'","note":"X trends fetched client-side from getdaytrends.com"}' > data/x-trends.json
 
       - name: Commit data
         run: |
