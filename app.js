@@ -1,7 +1,7 @@
-// Multiple CORS proxies for reliability
+// Multiple CORS proxies — try US-based ones first
 const PROXIES = [
-  url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,  // JSON wrapper (more reliable)
   url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 
@@ -11,9 +11,11 @@ const PANELS = [
     icon: '🤖',
     title: 'AI & Tech',
     feeds: [
-      { name: 'Google News AI', url: gnews('artificial+intelligence+OR+OpenAI+OR+Anthropic+OR+robotics', 3) },
-      { name: 'HN Front', url: 'https://hnrss.org/frontpage?count=20' },
-      { name: 'Google News Tech', url: gnews('AI+breakthroughs+OR+machine+learning+OR+LLM', 2) },
+      { name: 'HN Front', url: 'https://hnrss.org/frontpage?count=25' },
+      { name: 'The Verge AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml' },
+      { name: 'VentureBeat AI', url: 'https://venturebeat.com/category/ai/feed/' },
+      { name: 'TechMeme', url: 'https://www.techmeme.com/feed.xml' },
+      { name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/technology-lab' },
     ]
   },
   {
@@ -21,10 +23,12 @@ const PANELS = [
     icon: '💰',
     title: 'Crypto',
     feeds: [
-      { name: 'Google News Crypto', url: gnews('cryptocurrency+OR+bitcoin+OR+ethereum+OR+solana+OR+DeFi', 2) },
-      { name: 'Google News Memecoin', url: gnews('memecoin+OR+"meme+coin"+OR+pump.fun+OR+"crypto+token"', 2) },
-      { name: 'Google News AI Crypto', url: gnews('"AI+crypto"+OR+"AI+agent"+blockchain+OR+"crypto+AI"', 3) },
+      { name: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/' },
+      { name: 'Decrypt', url: 'https://decrypt.co/feed' },
+      { name: 'The Block', url: 'https://www.theblock.co/rss.xml' },
       { name: 'CryptoSlate', url: 'https://cryptoslate.com/feed/' },
+      { name: 'Blockworks', url: 'https://blockworks.co/feed' },
+      { name: 'DL News', url: 'https://www.dlnews.com/rss/' },
     ]
   },
   {
@@ -33,7 +37,10 @@ const PANELS = [
     title: 'Culture',
     feeds: [
       { name: 'Reddit Popular', url: 'https://www.reddit.com/r/popular.rss?limit=20' },
-      { name: 'Google News Viral', url: gnews('viral+trend+OR+internet+culture+OR+meme', 2) },
+      { name: 'r/Technology', url: 'https://www.reddit.com/r/technology.rss?limit=15' },
+      { name: 'r/CryptoCurrency', url: 'https://www.reddit.com/r/CryptoCurrency.rss?limit=15' },
+      { name: 'r/WallStreetBets', url: 'https://www.reddit.com/r/wallstreetbets.rss?limit=15' },
+      { name: 'Know Your Meme', url: 'https://knowyourmeme.com/newsfeed.rss' },
     ]
   },
   {
@@ -41,8 +48,9 @@ const PANELS = [
     icon: '🌍',
     title: 'Macro',
     feeds: [
-      { name: 'Google News Geopolitics', url: gnews('geopolitics+OR+Reuters+world+news+OR+AP+news+breaking', 3) },
-      { name: 'Google News Crypto Policy', url: gnews('SEC+crypto+OR+CFTC+regulation+OR+US+crypto+policy', 3) },
+      { name: 'Reuters World', url: gnews('site:reuters.com+world+OR+politics', 1) },
+      { name: 'AP News', url: gnews('site:apnews.com+breaking', 1) },
+      { name: 'Crypto Regulation', url: gnews('SEC+crypto+OR+CFTC+regulation+OR+crypto+policy', 2) },
     ]
   },
   {
@@ -50,8 +58,9 @@ const PANELS = [
     icon: '🔬',
     title: 'Science',
     feeds: [
-      { name: 'Google News Science', url: gnews('science+breakthrough+OR+space+exploration+OR+quantum+computing+OR+biotech', 3) },
-      { name: 'Google News Space', url: gnews('NASA+OR+SpaceX+OR+astronomy+discovery', 2) },
+      { name: 'Ars Science', url: 'https://feeds.arstechnica.com/arstechnica/science' },
+      { name: 'Space', url: gnews('NASA+OR+SpaceX+launch+OR+astronomy', 3) },
+      { name: 'Biotech', url: gnews('biotech+breakthrough+OR+CRISPR+OR+quantum+computing', 5) },
     ]
   },
   {
@@ -60,7 +69,8 @@ const PANELS = [
     title: 'Funding',
     feeds: [
       { name: 'TechCrunch Venture', url: 'https://techcrunch.com/category/venture/feed/' },
-      { name: 'Google News Funding', url: gnews('crypto+funding+round+OR+startup+raises+OR+venture+capital+funding', 3) },
+      { name: 'Crunchbase', url: 'https://news.crunchbase.com/feed/' },
+      { name: 'Crypto Raises', url: gnews('"raised+million"+crypto+OR+blockchain+funding', 3) },
     ]
   }
 ];
