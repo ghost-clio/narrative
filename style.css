@@ -85,10 +85,11 @@ header {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 1px;
   background: var(--border);
   height: calc(100vh - 49px);
+  overflow: hidden;
 }
 
 .panel {
@@ -97,6 +98,7 @@ header {
   flex-direction: column;
   overflow: hidden;
   min-height: 0;
+  max-height: 100%;
 }
 
 .panel-header {
