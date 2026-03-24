@@ -161,6 +161,16 @@ async function fetchGitHubTrending() {
     const lang = row.querySelector('[itemprop="programmingLanguage"]')?.textContent?.trim() || '';
     const starCount = parseInt(starsText.replace(/[^0-9]/g, '')) || 0;
 
+    // Get total stars from the stargazers link
+    const stargazerLink = row.querySelector('a[href*="/stargazers"]');
+    let totalStars = 0;
+    if (stargazerLink) {
+      totalStars = parseInt(stargazerLink.textContent.replace(/[^0-9]/g, '')) || 0;
+    }
+
+    // Filter: only show breakout projects (<20k total stars)
+    if (totalStars >= 20000) return;
+
     items.push({
       title: repo,
       link: `https://github.com/${repo}`,
