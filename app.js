@@ -13,6 +13,7 @@ const PROXIES = [
 
 // ── PANELS ──────────────────────────────────────
 const PANELS = [
+  // ── PAGE 1 (above fold) ──
   {
     id: 'xtrends',
     icon: '𝕏',
@@ -44,7 +45,40 @@ const PANELS = [
     icon: '🔧',
     title: 'GITHUB TRENDING',
     special: 'github',
-    description: 'breakout repos under 20k stars'
+    description: 'breakout repos under 5k stars'
+  },
+  // ── PAGE 2 (scroll down) ──
+  {
+    id: 'culture',
+    icon: '🌊',
+    title: 'VIRAL',
+    special: 'viral',
+    description: 'fastest rising posts by velocity — engagement per minute'
+  },
+  {
+    id: 'polymarket',
+    icon: '🎰',
+    title: 'POLYMARKET',
+    special: 'polymarket',
+    description: 'money where mouth is — sorted by 24h volume'
+  },
+  {
+    id: 'pumpportal',
+    icon: '🚀',
+    title: 'PUMP.FUN TOP VOL',
+    special: 'pumpportal',
+    description: 'highest volume tokens on pump.fun right now'
+  },
+  {
+    id: 'rising',
+    icon: '⚡',
+    title: 'RISING NOW',
+    feeds: [
+      { name: 'HN Rising', url: 'https://hnrss.org/newest?points=10&count=25' },
+      { name: 'Reddit Rising', url: 'https://www.reddit.com/r/all/rising.rss?limit=20' },
+      { name: 'Product Hunt', url: 'https://www.producthunt.com/feed' },
+    ],
+    description: 'climbing right now'
   },
 ];
 
