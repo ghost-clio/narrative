@@ -22,21 +22,21 @@ const PANELS = [
       { name: 'Reddit Rising', url: 'https://www.reddit.com/r/all/rising.rss?limit=20' },
       { name: 'Product Hunt', url: 'https://www.producthunt.com/feed' },
     ],
-    description: 'climbing right now — not yet mainstream'
+    description: 'climbing right now'
   },
   {
     id: 'github',
     icon: '🔧',
     title: 'GITHUB TRENDING',
     special: 'github',
-    description: 'repos gaining mass fast — narrative origin'
+    description: 'breakout repos under 20k stars'
   },
   {
     id: 'wiki',
     icon: '📈',
     title: 'WIKIPEDIA SPIKES',
     special: 'wikipedia',
-    description: 'pageview surges — something just happened'
+    description: 'what the world just searched'
   },
   {
     id: 'ai',
@@ -62,7 +62,7 @@ const PANELS = [
     icon: '🎰',
     title: 'POLYMARKET',
     special: 'polymarket',
-    description: 'what people are betting money on right now'
+    description: 'money where mouth is — sorted by 24h volume'
   },
   {
     id: 'culture',
@@ -77,7 +77,7 @@ const PANELS = [
       { name: 'r/OutOfTheLoop', url: 'https://www.reddit.com/r/OutOfTheLoop/hot.rss?limit=8' },
       { name: 'Know Your Meme', url: 'https://knowyourmeme.com/newsfeed.rss' },
     ],
-    description: 'normie viral — the stuff that becomes a token'
+    description: 'normie viral — pup energy'
   },
   {
     id: 'money',
@@ -251,23 +251,24 @@ async function fetchPolymarket() {
   });
   const markets = await resp.json();
 
-  return markets.map(m => {
-    const vol = parseFloat(m.volume24hr || 0);
-    const volStr = vol >= 1000000 ? `$${(vol/1000000).toFixed(1)}M` : `$${(vol/1000).toFixed(0)}K`;
-    return {
-      title: m.question,
-      link: `https://polymarket.com/event/${m.slug || m.conditionId}`,
-      source: volStr + ' vol',
-      date: new Date(m.startDate || m.createdAt || Date.now()),
-    };
-  });
+  // Filter out sports game lines — keep the signal, not the spreads
+  const skipPatterns = /^(Lakers|Celtics|Warriors|Pistons|Pacers|Rockets|Bulls|Spurs|Heat|Magic|Knicks|Nets|Suns|Mavs|Nuggets|Thunder|Clippers|Kings|Grizzlies|Pelicans|Raptors|Hawks|Hornets|Cavaliers|Wizards|Bucks|Timberwolves|Trail Blazers|Jazz|76ers)\s+vs\./i;
+
+  return markets
+    .filter(m => !skipPatterns.test(m.question))
+    .map(m => {
+      const vol = parseFloat(m.volume24hr || 0);
+      const volStr = vol >= 1000000 ? `$${(vol/1000000).toFixed(1)}M` : `$${(vol/1000).toFixed(0)}K`;
+      return {
+        title: m.question,
+        link: `https://polymarket.com/event/${m.slug || m.conditionId}`,
+        source: volStr + ' vol',
+        date: new Date(m.startDate || m.createdAt || Date.now()),
+      };
+    });
 }
 
 // ── CORE RSS FETCHER ────────────────────────────
-
-function gnews(query, days) {
-  return `https://news.google.com/rss/search?q=${encodeURIComponent(query)}+when:${days}d&hl=en-US&gl=US&ceid=US:en&geo=US&cr=countryUS`;
-}
 
 function timeAgo(date) {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);

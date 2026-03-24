@@ -42,11 +42,12 @@ header {
 }
 
 .logo {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   color: var(--green);
   text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  user-select: none;
 }
 
 .header-meta {
@@ -211,12 +212,12 @@ header {
 }
 
 .panel-desc {
-  padding: 4px 16px 8px;
-  font-size: 10px;
+  padding: 2px 12px 4px;
+  font-size: 9px;
   color: var(--text-dim);
-  opacity: 0.5;
+  opacity: 0.35;
   font-style: italic;
-  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.5px;
   flex-shrink: 0;
 }
 
