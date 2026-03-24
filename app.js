@@ -67,14 +67,17 @@ const PANELS = [
   {
     id: 'culture',
     icon: '🌊',
-    title: 'CULTURE VELOCITY',
+    title: 'VIRAL',
     feeds: [
-      { name: 'Reddit Rising', url: 'https://www.reddit.com/r/popular/rising.rss?limit=15' },
-      { name: 'r/OutOfTheLoop', url: 'https://www.reddit.com/r/OutOfTheLoop/hot.rss?limit=10' },
+      { name: 'Reddit Rising', url: 'https://www.reddit.com/r/all/rising.rss?limit=15' },
+      { name: 'r/nextfuckinglevel', url: 'https://www.reddit.com/r/nextfuckinglevel/rising.rss?limit=10' },
+      { name: 'r/MadeMeSmile', url: 'https://www.reddit.com/r/MadeMeSmile/rising.rss?limit=10' },
+      { name: 'r/PublicFreakout', url: 'https://www.reddit.com/r/PublicFreakout/rising.rss?limit=10' },
+      { name: 'r/aww', url: 'https://www.reddit.com/r/aww/rising.rss?limit=10' },
+      { name: 'r/OutOfTheLoop', url: 'https://www.reddit.com/r/OutOfTheLoop/hot.rss?limit=8' },
       { name: 'Know Your Meme', url: 'https://knowyourmeme.com/newsfeed.rss' },
-      { name: 'r/InternetIsBeautiful', url: 'https://www.reddit.com/r/InternetIsBeautiful/hot.rss?limit=10' },
     ],
-    description: 'what people are starting to talk about'
+    description: 'normie viral — the stuff that becomes a token'
   },
   {
     id: 'money',
