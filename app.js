@@ -51,6 +51,20 @@ const PANELS = [
     description: 'papers, launches, breakthroughs'
   },
   {
+    id: 'xtrends',
+    icon: '𝕏',
+    title: 'X TRENDING',
+    special: 'xtrends',
+    description: 'what twitter is talking about right now'
+  },
+  {
+    id: 'douyin',
+    icon: '🐉',
+    title: 'DOUYIN 抖音',
+    special: 'douyin',
+    description: 'CN trends crossing over — 12-24h before global'
+  },
+  {
     id: 'culture',
     icon: '🌊',
     title: 'CULTURE VELOCITY',
@@ -194,6 +208,40 @@ async function fetchWikipediaSpikes() {
   return items.slice(0, 25);
 }
 
+// X Trends — from GitHub Actions cached JSON
+async function fetchXTrends() {
+  const url = 'https://raw.githubusercontent.com/ghost-clio/narrative/main/data/x-trends.json';
+  const resp = await fetch(url + '?t=' + Date.now(), { signal: AbortSignal.timeout(10000) });
+  const data = await resp.json();
+  if (!data.trends?.length) return [];
+
+  const updated = data.updated ? new Date(data.updated) : new Date();
+  return data.trends.map(t => ({
+    title: t.topic,
+    link: `https://x.com/search?q=${encodeURIComponent(t.topic)}`,
+    source: 'X Trending',
+    meta: t.context || '',
+    date: updated,
+  }));
+}
+
+// Douyin Trends — from GitHub Actions cached JSON
+async function fetchDouyinTrends() {
+  const url = 'https://raw.githubusercontent.com/ghost-clio/narrative/main/data/douyin-trends.json';
+  const resp = await fetch(url + '?t=' + Date.now(), { signal: AbortSignal.timeout(10000) });
+  const data = await resp.json();
+  if (!data.trends?.length) return [];
+
+  const updated = data.updated ? new Date(data.updated) : new Date();
+  return data.trends.map(t => ({
+    title: `${t.topic_cn} — ${t.topic_en}`,
+    link: `https://www.douyin.com/search/${encodeURIComponent(t.topic_cn)}`,
+    source: '抖音热搜',
+    meta: t.context || '',
+    date: updated,
+  }));
+}
+
 // ── CORE RSS FETCHER ────────────────────────────
 
 function gnews(query, days) {
@@ -321,6 +369,18 @@ async function loadPanel(panel) {
 
     if (panel.special === 'wikipedia') {
       const items = await fetchWikipediaSpikes();
+      renderItems(items, feedEl, countEl, panel.id);
+      return;
+    }
+
+    if (panel.special === 'xtrends') {
+      const items = await fetchXTrends();
+      renderItems(items, feedEl, countEl, panel.id);
+      return;
+    }
+
+    if (panel.special === 'douyin') {
+      const items = await fetchDouyinTrends();
       renderItems(items, feedEl, countEl, panel.id);
       return;
     }

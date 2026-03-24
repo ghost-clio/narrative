@@ -83,7 +83,7 @@ header {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 1px;
   background: var(--border);
@@ -276,12 +276,15 @@ header {
   opacity: 0.4;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .panel {
-    max-height: 70vh;
   }
 }
 
