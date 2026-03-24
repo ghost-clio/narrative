@@ -1,6 +1,9 @@
 // ═══════════════════════════════════════════════
-// NARRATIVE EYES — Early signal dashboard
+// NARRATIVE — Early signal dashboard
 // ═══════════════════════════════════════════════
+
+const REFRESH_MS = 2 * 60 * 1000; // 2 minutes
+const SNAPSHOT_KEY = 'narrative_snapshot';
 
 // CORS proxies
 const PROXIES = [
@@ -72,9 +75,63 @@ const PANELS = [
   },
 ];
 
+// ── DELTA TRACKING ──────────────────────────────
+
+function loadSnapshot() {
+  try {
+    const raw = localStorage.getItem(SNAPSHOT_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveSnapshot(panelId, items) {
+  const snap = loadSnapshot();
+  snap[panelId] = {
+    time: Date.now(),
+    keys: items.map(i => itemKey(i)),
+    // For wikipedia: store view counts for delta calc
+    views: items.reduce((acc, i) => {
+      if (i.viewCount) acc[itemKey(i)] = i.viewCount;
+      return acc;
+    }, {}),
+    // For github: store star counts
+    stars: items.reduce((acc, i) => {
+      if (i.starCount) acc[itemKey(i)] = i.starCount;
+      return acc;
+    }, {}),
+  };
+  localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(snap));
+}
+
+function itemKey(item) {
+  return item.title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 60);
+}
+
+function getDelta(panelId, item) {
+  const snap = loadSnapshot();
+  const prev = snap[panelId];
+  if (!prev) return { isNew: true, delta: null };
+
+  const key = itemKey(item);
+  const wasPresent = prev.keys.includes(key);
+
+  // Wikipedia view delta
+  if (item.viewCount && prev.views?.[key]) {
+    const viewDelta = item.viewCount - prev.views[key];
+    return { isNew: false, delta: viewDelta, type: 'views' };
+  }
+
+  // GitHub star delta
+  if (item.starCount && prev.stars?.[key]) {
+    const starDelta = item.starCount - prev.stars[key];
+    return { isNew: false, delta: starDelta, type: 'stars' };
+  }
+
+  return { isNew: !wasPresent, delta: null };
+}
+
 // ── SPECIAL FETCHERS ────────────────────────────
 
-// GitHub Trending — scrape the trending page
 async function fetchGitHubTrending() {
   const html = await fetchViaProxy('https://github.com/trending?since=daily&spoken_language_code=en');
   const parser = new DOMParser();
@@ -86,15 +143,17 @@ async function fetchGitHubTrending() {
     if (!repoLink) return;
     const repo = repoLink.getAttribute('href')?.replace(/^\//, '') || '';
     const desc = row.querySelector('p')?.textContent?.trim() || '';
-    const starsToday = row.querySelector('.d-inline-block.float-sm-right')?.textContent?.trim() || '';
+    const starsText = row.querySelector('.d-inline-block.float-sm-right')?.textContent?.trim() || '';
     const lang = row.querySelector('[itemprop="programmingLanguage"]')?.textContent?.trim() || '';
+    const starCount = parseInt(starsText.replace(/[^0-9]/g, '')) || 0;
 
     items.push({
       title: repo,
       link: `https://github.com/${repo}`,
       source: lang || 'GitHub',
       meta: desc,
-      badge: starsToday,
+      badge: starsText,
+      starCount,
       date: new Date(),
     });
   });
@@ -102,14 +161,12 @@ async function fetchGitHubTrending() {
   return items.slice(0, 20);
 }
 
-// Wikipedia — most viewed articles (yesterday's pageviews via Wikimedia API)
 async function fetchWikipediaSpikes() {
   const yesterday = new Date(Date.now() - 86400000);
   const y = yesterday.getFullYear();
   const m = String(yesterday.getMonth() + 1).padStart(2, '0');
   const d = String(yesterday.getDate()).padStart(2, '0');
 
-  // Wikimedia REST API — no auth needed, CORS enabled
   const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${y}/${m}/${d}`;
   const resp = await fetch(url);
   const data = await resp.json();
@@ -120,18 +177,15 @@ async function fetchWikipediaSpikes() {
   if (data.items?.[0]?.articles) {
     data.items[0].articles.forEach(a => {
       if (boring.has(a.article)) return;
-      if (a.article.startsWith('Special:')) return;
-      if (a.article.startsWith('Wikipedia:')) return;
-      if (a.article.startsWith('File:')) return;
-      if (a.article.startsWith('Portal:')) return;
+      if (a.article.startsWith('Special:') || a.article.startsWith('Wikipedia:') || a.article.startsWith('File:') || a.article.startsWith('Portal:')) return;
 
       const name = a.article.replace(/_/g, ' ');
-      const views = a.views.toLocaleString();
 
       items.push({
         title: name,
         link: `https://en.wikipedia.org/wiki/${a.article}`,
-        source: `${views} views`,
+        source: `${a.views.toLocaleString()} views`,
+        viewCount: a.views,
         date: yesterday,
       });
     });
@@ -148,8 +202,7 @@ function gnews(query, days) {
 
 function timeAgo(date) {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
-  if (seconds < 0) return 'just now';
-  if (seconds < 60) return 'just now';
+  if (seconds < 0 || seconds < 60) return 'just now';
   if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
   if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
   return Math.floor(seconds / 86400) + 'd ago';
@@ -157,9 +210,7 @@ function timeAgo(date) {
 
 function extractSource(title) {
   const match = title.match(/\s-\s([^-]+)$/);
-  if (match) {
-    return { clean: title.replace(/\s-\s[^-]+$/, '').trim(), source: match[1].trim() };
-  }
+  if (match) return { clean: title.replace(/\s-\s[^-]+$/, '').trim(), source: match[1].trim() };
   return { clean: title, source: '' };
 }
 
@@ -193,12 +244,7 @@ async function fetchFeed(feedUrl, feedName) {
     const pubDate = entry.querySelector('pubDate, published, updated')?.textContent?.trim();
     if (!rawTitle) return;
     const { clean, source } = extractSource(rawTitle);
-    items.push({
-      title: clean,
-      link,
-      source: source || feedName,
-      date: pubDate ? new Date(pubDate) : new Date(),
-    });
+    items.push({ title: clean, link, source: source || feedName, date: pubDate ? new Date(pubDate) : new Date() });
   });
 
   return items;
@@ -212,7 +258,30 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function renderItems(items, feedEl, countEl, showBadge = false) {
+function deltaTag(panelId, item) {
+  const d = getDelta(panelId, item);
+
+  if (d.isNew) return '<span class="delta delta-new">🆕</span>';
+
+  if (d.delta !== null) {
+    if (d.type === 'views' && d.delta > 10000) {
+      return `<span class="delta delta-hot">🔥 +${(d.delta/1000).toFixed(0)}K</span>`;
+    }
+    if (d.type === 'views' && d.delta > 1000) {
+      return `<span class="delta delta-warm">↑ +${(d.delta/1000).toFixed(0)}K</span>`;
+    }
+    if (d.type === 'stars' && d.delta > 50) {
+      return `<span class="delta delta-hot">🔥 +${d.delta}★</span>`;
+    }
+    if (d.type === 'stars' && d.delta > 10) {
+      return `<span class="delta delta-warm">↑ +${d.delta}★</span>`;
+    }
+  }
+
+  return '';
+}
+
+function renderItems(items, feedEl, countEl, panelId) {
   if (items.length === 0) {
     feedEl.innerHTML = '<div class="panel-error">No items loaded</div>';
     countEl.textContent = '0';
@@ -221,16 +290,20 @@ function renderItems(items, feedEl, countEl, showBadge = false) {
 
   countEl.textContent = items.length;
   feedEl.innerHTML = items.map(item => `
-    <div class="feed-item">
+    <div class="feed-item${getDelta(panelId, item).isNew ? ' is-new' : ''}">
       <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
       ${item.meta ? `<div class="item-desc">${escapeHtml(item.meta)}</div>` : ''}
       <div class="meta">
         <span class="source">${escapeHtml(item.source)}</span>
         ${item.badge ? `<span class="badge">${escapeHtml(item.badge)}</span>` : ''}
+        ${deltaTag(panelId, item)}
         <span class="time">${timeAgo(item.date)}</span>
       </div>
     </div>
   `).join('');
+
+  // Save snapshot AFTER rendering (so deltas compare against previous)
+  saveSnapshot(panelId, items);
 }
 
 async function loadPanel(panel) {
@@ -240,20 +313,18 @@ async function loadPanel(panel) {
   feedEl.innerHTML = '<div class="panel-loading"><span class="spinner"></span>Loading...</div>';
 
   try {
-    // Special fetchers
     if (panel.special === 'github') {
       const items = await fetchGitHubTrending();
-      renderItems(items, feedEl, countEl, true);
+      renderItems(items, feedEl, countEl, panel.id);
       return;
     }
 
     if (panel.special === 'wikipedia') {
       const items = await fetchWikipediaSpikes();
-      renderItems(items, feedEl, countEl);
+      renderItems(items, feedEl, countEl, panel.id);
       return;
     }
 
-    // Standard RSS panels
     const results = await Promise.allSettled(
       panel.feeds.map(f => fetchFeed(f.url, f.name))
     );
@@ -263,7 +334,6 @@ async function loadPanel(panel) {
       if (r.status === 'fulfilled') allItems = allItems.concat(r.value);
     });
 
-    // Deduplicate
     const seen = new Set();
     allItems = allItems.filter(item => {
       const key = item.title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 50);
@@ -275,7 +345,7 @@ async function loadPanel(panel) {
     allItems.sort((a, b) => b.date - a.date);
     allItems = allItems.slice(0, 30);
 
-    renderItems(allItems, feedEl, countEl);
+    renderItems(allItems, feedEl, countEl, panel.id);
   } catch(e) {
     feedEl.innerHTML = `<div class="panel-error">Failed to load: ${e.message}</div>`;
   }
@@ -289,11 +359,27 @@ function updateClock() {
 }
 
 function updateRefreshTime() {
-  document.getElementById('last-refresh').textContent = 'refreshed ' + new Date().toISOString().slice(11, 16);
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('last-refresh').textContent = `refreshed ${h}:${m}`;
+}
+
+let refreshTimer;
+function startCountdown() {
+  const el = document.getElementById('countdown');
+  let sec = REFRESH_MS / 1000;
+  clearInterval(refreshTimer);
+  refreshTimer = setInterval(() => {
+    sec--;
+    if (sec <= 0) sec = REFRESH_MS / 1000;
+    el.textContent = `next ${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
+  }, 1000);
 }
 
 async function refreshAll() {
   updateRefreshTime();
+  startCountdown();
   await Promise.allSettled(PANELS.map(p => loadPanel(p)));
 }
 
@@ -316,7 +402,7 @@ function init() {
   updateClock();
   setInterval(updateClock, 1000);
   refreshAll();
-  setInterval(refreshAll, 5 * 60 * 1000);
+  setInterval(refreshAll, REFRESH_MS);
 }
 
 document.addEventListener('DOMContentLoaded', init);

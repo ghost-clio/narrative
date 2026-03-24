@@ -245,6 +245,37 @@ header {
   opacity: 0.7;
 }
 
+/* Delta indicators */
+.delta {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.delta-new {
+  color: var(--green);
+}
+
+.delta-hot {
+  color: #ff6b35;
+}
+
+.delta-warm {
+  color: var(--amber);
+  opacity: 0.8;
+}
+
+.feed-item.is-new {
+  border-left: 2px solid var(--green);
+  padding-left: 10px;
+}
+
+.countdown {
+  font-size: 10px;
+  opacity: 0.4;
+}
+
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
