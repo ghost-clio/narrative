@@ -19,13 +19,14 @@ jobs:
         run: |
           mkdir -p data
 
-          # ── X/Twitter Trends (via Grok x_search) ──
+          # ── X/Twitter Trends (via Grok with live search) ──
           curl -s https://api.x.ai/v1/chat/completions \
             -H "Authorization: Bearer $XAI_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
               "model": "grok-3-mini-fast",
-              "messages": [{"role": "user", "content": "What are the top 20 trending topics on Twitter/X right now in the US? List them as a JSON array of objects with \"topic\" and \"context\" (one sentence explaining why it is trending). Only output the JSON array, no other text."}],
+              "search_parameters": {"mode": "auto", "sources": [{"type": "x"}]},
+              "messages": [{"role": "user", "content": "Search X/Twitter right now. What are the top 20 trending topics on Twitter/X in the US TODAY? List them as a JSON array of objects with \"topic\" and \"context\" (one sentence explaining why it is trending right now today). Only output the JSON array, no other text."}],
               "temperature": 0
             }' | python3 -c "
           import sys, json
@@ -46,13 +47,14 @@ jobs:
               json.dump({'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)', 'trends': [], 'error': str(e)}, open('data/x-trends.json', 'w'))
           "
 
-          # ── Douyin Hot Search (via Grok x_search for 抖音热搜) ──
+          # ── Douyin Hot Search (via Grok with live search) ──
           curl -s https://api.x.ai/v1/chat/completions \
             -H "Authorization: Bearer $XAI_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
               "model": "grok-3-mini-fast",
-              "messages": [{"role": "user", "content": "What are the current top 15 trending topics on Douyin (抖音热搜) right now? Include both the Chinese text and an English translation/explanation. List as a JSON array of objects with \"topic_cn\" (Chinese), \"topic_en\" (English translation), and \"context\" (why it is trending, in English). Only output the JSON array."}],
+              "search_parameters": {"mode": "auto", "sources": [{"type": "x"}, {"type": "web"}]},
+              "messages": [{"role": "user", "content": "Search for 抖音热搜 (Douyin hot search) trending RIGHT NOW today. What are the current top 15 trending topics on Douyin? Include both the Chinese text and an English translation/explanation. List as a JSON array of objects with \"topic_cn\" (Chinese), \"topic_en\" (English translation), and \"context\" (why it is trending, in English). Only output the JSON array."}],
               "temperature": 0
             }' | python3 -c "
           import sys, json
