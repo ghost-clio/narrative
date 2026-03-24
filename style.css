@@ -204,6 +204,34 @@ header {
   to { transform: rotate(360deg); }
 }
 
+.panel-desc {
+  padding: 4px 16px 8px;
+  font-size: 10px;
+  color: var(--text-dim);
+  opacity: 0.5;
+  font-style: italic;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.item-desc {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-dim);
+  opacity: 0.6;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.badge {
+  color: var(--amber);
+  font-weight: 600;
+  opacity: 0.8;
+}
+
 .panel-error {
   padding: 16px;
   color: var(--red);

@@ -1,79 +1,146 @@
-// Multiple CORS proxies — try US-based ones first
+// ═══════════════════════════════════════════════
+// NARRATIVE EYES — Early signal dashboard
+// ═══════════════════════════════════════════════
+
+// CORS proxies
 const PROXIES = [
   url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
   url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
-  url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 
+// ── PANELS ──────────────────────────────────────
 const PANELS = [
   {
-    id: 'ai-tech',
-    icon: '🤖',
-    title: 'AI & Tech',
+    id: 'rising',
+    icon: '⚡',
+    title: 'RISING NOW',
     feeds: [
-      { name: 'HN Front', url: 'https://hnrss.org/frontpage?count=25' },
-      { name: 'The Verge AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml' },
-      { name: 'VentureBeat AI', url: 'https://venturebeat.com/category/ai/feed/' },
-      { name: 'TechMeme', url: 'https://www.techmeme.com/feed.xml' },
-      { name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/technology-lab' },
-    ]
+      { name: 'HN Rising', url: 'https://hnrss.org/newest?points=10&count=25' },
+      { name: 'Reddit Rising', url: 'https://www.reddit.com/r/all/rising.rss?limit=20' },
+      { name: 'Product Hunt', url: 'https://www.producthunt.com/feed' },
+    ],
+    description: 'climbing right now — not yet mainstream'
   },
   {
-    id: 'crypto',
-    icon: '💰',
-    title: 'Crypto',
+    id: 'github',
+    icon: '🔧',
+    title: 'GITHUB TRENDING',
+    special: 'github',
+    description: 'repos gaining mass fast — narrative origin'
+  },
+  {
+    id: 'wiki',
+    icon: '📈',
+    title: 'WIKIPEDIA SPIKES',
+    special: 'wikipedia',
+    description: 'pageview surges — something just happened'
+  },
+  {
+    id: 'ai',
+    icon: '🤖',
+    title: 'AI & TECH',
     feeds: [
-      { name: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/' },
-      { name: 'Decrypt', url: 'https://decrypt.co/feed' },
-      { name: 'The Block', url: 'https://www.theblock.co/rss.xml' },
-      { name: 'CryptoSlate', url: 'https://cryptoslate.com/feed/' },
-      { name: 'Blockworks', url: 'https://blockworks.co/feed' },
-      { name: 'DL News', url: 'https://www.dlnews.com/rss/' },
-    ]
+      { name: 'ArXiv AI', url: 'https://rss.arxiv.org/rss/cs.AI' },
+      { name: 'ArXiv LG', url: 'https://rss.arxiv.org/rss/cs.LG' },
+      { name: 'TechMeme', url: 'https://www.techmeme.com/feed.xml' },
+      { name: 'The Verge AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml' },
+    ],
+    description: 'papers, launches, breakthroughs'
   },
   {
     id: 'culture',
     icon: '🌊',
-    title: 'Culture',
+    title: 'CULTURE VELOCITY',
     feeds: [
-      { name: 'Reddit Popular', url: 'https://www.reddit.com/r/popular.rss?limit=20' },
-      { name: 'r/Technology', url: 'https://www.reddit.com/r/technology.rss?limit=15' },
-      { name: 'r/CryptoCurrency', url: 'https://www.reddit.com/r/CryptoCurrency.rss?limit=15' },
-      { name: 'r/WallStreetBets', url: 'https://www.reddit.com/r/wallstreetbets.rss?limit=15' },
+      { name: 'Reddit Rising', url: 'https://www.reddit.com/r/popular/rising.rss?limit=15' },
+      { name: 'r/OutOfTheLoop', url: 'https://www.reddit.com/r/OutOfTheLoop/hot.rss?limit=10' },
       { name: 'Know Your Meme', url: 'https://knowyourmeme.com/newsfeed.rss' },
-    ]
+      { name: 'r/InternetIsBeautiful', url: 'https://www.reddit.com/r/InternetIsBeautiful/hot.rss?limit=10' },
+    ],
+    description: 'what people are starting to talk about'
   },
   {
-    id: 'macro',
-    icon: '🌍',
-    title: 'Macro',
-    feeds: [
-      { name: 'Reuters World', url: gnews('site:reuters.com+world+OR+politics', 1) },
-      { name: 'AP News', url: gnews('site:apnews.com+breaking', 1) },
-      { name: 'Crypto Regulation', url: gnews('SEC+crypto+OR+CFTC+regulation+OR+crypto+policy', 2) },
-    ]
-  },
-  {
-    id: 'science',
-    icon: '🔬',
-    title: 'Science',
-    feeds: [
-      { name: 'Ars Science', url: 'https://feeds.arstechnica.com/arstechnica/science' },
-      { name: 'Space', url: gnews('NASA+OR+SpaceX+launch+OR+astronomy', 3) },
-      { name: 'Biotech', url: gnews('biotech+breakthrough+OR+CRISPR+OR+quantum+computing', 5) },
-    ]
-  },
-  {
-    id: 'funding',
-    icon: '💸',
-    title: 'Funding',
+    id: 'money',
+    icon: '💰',
+    title: 'MONEY MOVES',
     feeds: [
       { name: 'TechCrunch Venture', url: 'https://techcrunch.com/category/venture/feed/' },
       { name: 'Crunchbase', url: 'https://news.crunchbase.com/feed/' },
-      { name: 'Crypto Raises', url: gnews('"raised+million"+crypto+OR+blockchain+funding', 3) },
-    ]
-  }
+      { name: 'r/WallStreetBets Rising', url: 'https://www.reddit.com/r/wallstreetbets/rising.rss?limit=15' },
+    ],
+    description: 'funding, bets, where capital is flowing'
+  },
 ];
+
+// ── SPECIAL FETCHERS ────────────────────────────
+
+// GitHub Trending — scrape the trending page
+async function fetchGitHubTrending() {
+  const html = await fetchViaProxy('https://github.com/trending?since=daily&spoken_language_code=en');
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const items = [];
+
+  doc.querySelectorAll('article.Box-row').forEach(row => {
+    const repoLink = row.querySelector('h2 a');
+    if (!repoLink) return;
+    const repo = repoLink.getAttribute('href')?.replace(/^\//, '') || '';
+    const desc = row.querySelector('p')?.textContent?.trim() || '';
+    const starsToday = row.querySelector('.d-inline-block.float-sm-right')?.textContent?.trim() || '';
+    const lang = row.querySelector('[itemprop="programmingLanguage"]')?.textContent?.trim() || '';
+
+    items.push({
+      title: repo,
+      link: `https://github.com/${repo}`,
+      source: lang || 'GitHub',
+      meta: desc,
+      badge: starsToday,
+      date: new Date(),
+    });
+  });
+
+  return items.slice(0, 20);
+}
+
+// Wikipedia — most viewed articles (yesterday's pageviews via Wikimedia API)
+async function fetchWikipediaSpikes() {
+  const yesterday = new Date(Date.now() - 86400000);
+  const y = yesterday.getFullYear();
+  const m = String(yesterday.getMonth() + 1).padStart(2, '0');
+  const d = String(yesterday.getDate()).padStart(2, '0');
+
+  // Wikimedia REST API — no auth needed, CORS enabled
+  const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${y}/${m}/${d}`;
+  const resp = await fetch(url);
+  const data = await resp.json();
+
+  const items = [];
+  const boring = new Set(['Main_Page', 'Special:Search', 'Wikipedia:Featured_pictures', '-', 'Portal:Current_events', 'Special:CreateAccount', 'Special:Watchlist']);
+
+  if (data.items?.[0]?.articles) {
+    data.items[0].articles.forEach(a => {
+      if (boring.has(a.article)) return;
+      if (a.article.startsWith('Special:')) return;
+      if (a.article.startsWith('Wikipedia:')) return;
+      if (a.article.startsWith('File:')) return;
+      if (a.article.startsWith('Portal:')) return;
+
+      const name = a.article.replace(/_/g, ' ');
+      const views = a.views.toLocaleString();
+
+      items.push({
+        title: name,
+        link: `https://en.wikipedia.org/wiki/${a.article}`,
+        source: `${views} views`,
+        date: yesterday,
+      });
+    });
+  }
+
+  return items.slice(0, 25);
+}
+
+// ── CORE RSS FETCHER ────────────────────────────
 
 function gnews(query, days) {
   return `https://news.google.com/rss/search?q=${encodeURIComponent(query)}+when:${days}d&hl=en-US&gl=US&ceid=US:en&geo=US&cr=countryUS`;
@@ -81,6 +148,7 @@ function gnews(query, days) {
 
 function timeAgo(date) {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+  if (seconds < 0) return 'just now';
   if (seconds < 60) return 'just now';
   if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
   if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
@@ -90,10 +158,7 @@ function timeAgo(date) {
 function extractSource(title) {
   const match = title.match(/\s-\s([^-]+)$/);
   if (match) {
-    return {
-      clean: title.replace(/\s-\s[^-]+$/, '').trim(),
-      source: match[1].trim()
-    };
+    return { clean: title.replace(/\s-\s[^-]+$/, '').trim(), source: match[1].trim() };
   }
   return { clean: title, source: '' };
 }
@@ -102,10 +167,9 @@ async function fetchViaProxy(feedUrl) {
   for (const makeUrl of PROXIES) {
     try {
       const url = makeUrl(feedUrl);
-      const resp = await fetch(url, { signal: AbortSignal.timeout(12000) });
+      const resp = await fetch(url, { signal: AbortSignal.timeout(15000) });
       if (!resp.ok) continue;
       const raw = await resp.text();
-      // allorigins /get returns JSON with contents field
       try {
         const json = JSON.parse(raw);
         if (json.contents) return json.contents;
@@ -120,20 +184,15 @@ async function fetchFeed(feedUrl, feedName) {
   const text = await fetchViaProxy(feedUrl);
   const parser = new DOMParser();
   const doc = parser.parseFromString(text, 'text/xml');
-
   const items = [];
-  const entries = doc.querySelectorAll('item, entry');
 
-  entries.forEach(entry => {
+  doc.querySelectorAll('item, entry').forEach(entry => {
     const rawTitle = entry.querySelector('title')?.textContent?.trim() || '';
     const link = entry.querySelector('link')?.textContent?.trim()
       || entry.querySelector('link')?.getAttribute('href') || '';
     const pubDate = entry.querySelector('pubDate, published, updated')?.textContent?.trim();
-
     if (!rawTitle) return;
-
     const { clean, source } = extractSource(rawTitle);
-
     items.push({
       title: clean,
       link,
@@ -145,50 +204,7 @@ async function fetchFeed(feedUrl, feedName) {
   return items;
 }
 
-async function loadPanel(panel) {
-  const feedEl = document.querySelector(`#panel-${panel.id} .panel-feed`);
-  const countEl = document.querySelector(`#panel-${panel.id} .item-count`);
-
-  feedEl.innerHTML = '<div class="panel-loading"><span class="spinner"></span>Loading...</div>';
-
-  const results = await Promise.allSettled(
-    panel.feeds.map(f => fetchFeed(f.url, f.name))
-  );
-
-  let allItems = [];
-  results.forEach(r => {
-    if (r.status === 'fulfilled') allItems = allItems.concat(r.value);
-  });
-
-  // Deduplicate by similar titles
-  const seen = new Set();
-  allItems = allItems.filter(item => {
-    const key = item.title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 50);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  allItems.sort((a, b) => b.date - a.date);
-  allItems = allItems.slice(0, 30);
-
-  if (allItems.length === 0) {
-    feedEl.innerHTML = '<div class="panel-error">No items loaded</div>';
-    countEl.textContent = '0';
-    return;
-  }
-
-  countEl.textContent = allItems.length;
-  feedEl.innerHTML = allItems.map(item => `
-    <div class="feed-item">
-      <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
-      <div class="meta">
-        <span class="source">${escapeHtml(item.source)}</span>
-        <span class="time">${timeAgo(item.date)}</span>
-      </div>
-    </div>
-  `).join('');
-}
+// ── PANEL RENDERING ─────────────────────────────
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -196,16 +212,84 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+function renderItems(items, feedEl, countEl, showBadge = false) {
+  if (items.length === 0) {
+    feedEl.innerHTML = '<div class="panel-error">No items loaded</div>';
+    countEl.textContent = '0';
+    return;
+  }
+
+  countEl.textContent = items.length;
+  feedEl.innerHTML = items.map(item => `
+    <div class="feed-item">
+      <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
+      ${item.meta ? `<div class="item-desc">${escapeHtml(item.meta)}</div>` : ''}
+      <div class="meta">
+        <span class="source">${escapeHtml(item.source)}</span>
+        ${item.badge ? `<span class="badge">${escapeHtml(item.badge)}</span>` : ''}
+        <span class="time">${timeAgo(item.date)}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadPanel(panel) {
+  const feedEl = document.querySelector(`#panel-${panel.id} .panel-feed`);
+  const countEl = document.querySelector(`#panel-${panel.id} .item-count`);
+
+  feedEl.innerHTML = '<div class="panel-loading"><span class="spinner"></span>Loading...</div>';
+
+  try {
+    // Special fetchers
+    if (panel.special === 'github') {
+      const items = await fetchGitHubTrending();
+      renderItems(items, feedEl, countEl, true);
+      return;
+    }
+
+    if (panel.special === 'wikipedia') {
+      const items = await fetchWikipediaSpikes();
+      renderItems(items, feedEl, countEl);
+      return;
+    }
+
+    // Standard RSS panels
+    const results = await Promise.allSettled(
+      panel.feeds.map(f => fetchFeed(f.url, f.name))
+    );
+
+    let allItems = [];
+    results.forEach(r => {
+      if (r.status === 'fulfilled') allItems = allItems.concat(r.value);
+    });
+
+    // Deduplicate
+    const seen = new Set();
+    allItems = allItems.filter(item => {
+      const key = item.title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 50);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+    allItems.sort((a, b) => b.date - a.date);
+    allItems = allItems.slice(0, 30);
+
+    renderItems(allItems, feedEl, countEl);
+  } catch(e) {
+    feedEl.innerHTML = `<div class="panel-error">Failed to load: ${e.message}</div>`;
+  }
+}
+
+// ── CLOCK & REFRESH ─────────────────────────────
+
 function updateClock() {
   const now = new Date();
-  const utc = now.toISOString().slice(11, 19);
-  document.getElementById('clock').textContent = utc + ' UTC';
+  document.getElementById('clock').textContent = now.toISOString().slice(11, 19) + ' UTC';
 }
 
 function updateRefreshTime() {
-  const now = new Date();
-  const t = now.toISOString().slice(11, 16);
-  document.getElementById('last-refresh').textContent = 'refreshed ' + t;
+  document.getElementById('last-refresh').textContent = 'refreshed ' + new Date().toISOString().slice(11, 16);
 }
 
 async function refreshAll() {
@@ -221,6 +305,7 @@ function buildGrid() {
         <span><span class="category-icon">${p.icon}</span>${p.title}</span>
         <span class="item-count">—</span>
       </div>
+      ${p.description ? `<div class="panel-desc">${p.description}</div>` : ''}
       <div class="panel-feed"></div>
     </div>
   `).join('');
