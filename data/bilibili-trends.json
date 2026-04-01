@@ -1,8 +1,8 @@
 {
-  "updated": "2026-04-01T21:45:17Z",
+  "updated": "2026-04-01T22:41:01Z",
   "trends": [
     {
-      "topic": "TES官宣上调二队上单ZUIAN",
+      "topic": "美国老百姓怎么看张雪机车夺冠",
       "source": "bilibili",
       "heat": 0
     },
@@ -17,7 +17,17 @@
       "heat": 0
     },
     {
-      "topic": "独立开发者的春天来了吗",
+      "topic": "TES官宣上调二队上单ZUIAN",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "被精心设计的内存涨价游戏",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "为何手机充电谣言不断",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,17 +42,7 @@
       "heat": 0
     },
     {
-      "topic": "为何手机充电谣言不断",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "全美爆发游行是为了反战吗",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "BLG无畏契约官宣Levius离队",
       "source": "bilibili",
       "heat": 0
     },
@@ -52,7 +52,7 @@
       "heat": 0
     },
     {
-      "topic": "DRG  XLG",
+      "topic": "李荣浩教科书级维权",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,32 +62,12 @@
       "heat": 0
     },
     {
-      "topic": "李荣浩教科书级维权",
+      "topic": "DRG  XLG",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "Claude Code源码分析与复刻实现",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "全面开展国有馆藏文物盘库清点",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "李荣浩早年怼人战绩大赏",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "从泄露源码扒出Claude隐藏彩蛋",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "Claude Opus是否会淘汰程序员",
+      "topic": "内存条价格大跳水",
       "source": "bilibili",
       "heat": 0
     },
@@ -98,6 +78,26 @@
     },
     {
       "topic": "UP主复现Claude Code代码漏洞",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "Claude Code源码分析与复刻实现",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "国足0比2喀麦隆",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "Claude Opus是否会淘汰程序员",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "央视新闻专访张雪机车创始人",
       "source": "bilibili",
       "heat": 0
     }
