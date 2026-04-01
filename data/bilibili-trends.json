@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-01T15:42:41Z",
+  "updated": "2026-04-01T16:39:04Z",
   "trends": [
     {
       "topic": "张雪机车车手瓦伦丁的故事",
@@ -17,21 +17,6 @@
       "heat": 0
     },
     {
-      "topic": "伊拉克时隔40年重返世界杯",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "明日方舟雷霆皮肤",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "公安网安公布3起网络谣言典型案例",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "医保基金监管新规开始施行",
       "source": "bilibili",
       "heat": 0
@@ -42,7 +27,17 @@
       "heat": 0
     },
     {
+      "topic": "为何手机充电谣言不断",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "独立开发者的春天来了吗",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "81192和歼35歼15并肩从福建舰起飞",
       "source": "bilibili",
       "heat": 0
     },
@@ -52,12 +47,17 @@
       "heat": 0
     },
     {
+      "topic": "玄界之门",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "李荣浩教科书级维权",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "逐玉争议全盘点",
+      "topic": "原创不让你唱你唱不唱",
       "source": "bilibili",
       "heat": 0
     },
@@ -67,22 +67,17 @@
       "heat": 0
     },
     {
-      "topic": "盘点浪姐7的33位姐姐",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "Claude Code源码分析与复刻实现",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "内存条价格大跳水",
+      "topic": "影视飓风梦幻联动曼城",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "全面开展国有馆藏文物盘库清点",
+      "topic": "国际足联称伊朗将参加世界杯",
       "source": "bilibili",
       "heat": 0
     },
@@ -92,12 +87,17 @@
       "heat": 0
     },
     {
-      "topic": "洛克王国世界无敌轮椅T0组合",
+      "topic": "UP主复现Claude Code代码漏洞",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "从泄露源码扒出Claude隐藏彩蛋",
+      "topic": "张雪两连冠背后是怎样的坚守",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "Claude Opus是否会淘汰程序员",
       "source": "bilibili",
       "heat": 0
     }
