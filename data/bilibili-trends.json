@@ -1,8 +1,8 @@
 {
-  "updated": "2026-04-01T07:26:00Z",
+  "updated": "2026-04-01T08:46:06Z",
   "trends": [
     {
-      "topic": "日本历史首胜英格兰",
+      "topic": "美加墨世界杯48支参赛球队确定",
       "source": "bilibili",
       "heat": 0
     },
@@ -12,17 +12,17 @@
       "heat": 0
     },
     {
-      "topic": "整个B站都变绿了",
+      "topic": "今日首页限时彩蛋",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "DLSS4.5动态多帧生成功能发布",
+      "topic": "李荣浩的愤怒从何而来",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "美加墨世界杯48支参赛球队确定",
+      "topic": "原创不让你唱你唱不唱",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,7 +32,12 @@
       "heat": 0
     },
     {
-      "topic": "81192我们一直等你返航",
+      "topic": "整个B站都变绿了",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "日本历史首胜英格兰",
       "source": "bilibili",
       "heat": 0
     },
@@ -42,22 +47,12 @@
       "heat": 0
     },
     {
-      "topic": "Claude Code源码分析与复刻实现",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "湖人大胜骑士",
+      "topic": "UP主复现Claude Code代码漏洞",
       "source": "bilibili",
       "heat": 0
     },
     {
       "topic": "李荣浩教科书级维权",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "阿根廷5-0赞比亚",
       "source": "bilibili",
       "heat": 0
     },
@@ -72,12 +67,7 @@
       "heat": 0
     },
     {
-      "topic": "呜潮剧情动画",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "内存条价格大跳水",
+      "topic": "杨超越杨迪来王者种地了",
       "source": "bilibili",
       "heat": 0
     },
@@ -87,7 +77,17 @@
       "heat": 0
     },
     {
-      "topic": "中国和巴基斯坦提出5点倡议",
+      "topic": "G7外长会发生了什么",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "内存要降价了吗",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "FaZe无缘科隆Major",
       "source": "bilibili",
       "heat": 0
     },
@@ -97,7 +97,7 @@
       "heat": 0
     },
     {
-      "topic": "G7外长会发生了什么",
+      "topic": "美联储主席在哈佛讲了什么",
       "source": "bilibili",
       "heat": 0
     }
