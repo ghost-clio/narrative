@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-03T14:07:41Z",
+  "updated": "2026-04-03T15:02:52Z",
   "trends": [
     {
       "topic": "KT战胜GEN赛后数据",
@@ -12,7 +12,7 @@
       "heat": 0
     },
     {
-      "topic": "比段子还离谱的杀猪盘实例",
+      "topic": "Gemma4与Qwen3.6有哪些升级",
       "source": "bilibili",
       "heat": 0
     },
@@ -22,7 +22,12 @@
       "heat": 0
     },
     {
-      "topic": "Claude源码能否让全球AI工具大升级",
+      "topic": "比段子还离谱的杀猪盘实例",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "一美军战机在伊朗境内坠毁",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,22 +37,17 @@
       "heat": 0
     },
     {
-      "topic": "Gemma4与Qwen3.6有哪些升级",
+      "topic": "Claude源码能否让全球AI工具大升级",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "UP主在家造假鸡蛋",
       "source": "bilibili",
       "heat": 0
     },
     {
       "topic": "4月1日起严查后排安全带系谣言",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "永生",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "晓艳收到拼豆晓艳",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,22 +62,32 @@
       "heat": 0
     },
     {
-      "topic": "UP主在家造假鸡蛋",
+      "topic": "有一个大学生前来面试",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "洛克王国世界领地试炼指南",
+      "topic": "晓艳收到拼豆晓艳",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "乘风2026直播陪看",
+      "topic": "张雪 中国摩托的爽文",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "海贼王1179话完整解说",
+      "topic": "Anthropic GitHub仓库",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "马力欧银河大电影好看吗",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "哈登连续17个赛季杀入季后赛",
       "source": "bilibili",
       "heat": 0
     },
@@ -88,16 +98,6 @@
     },
     {
       "topic": "商务部回应Meta收购Manus",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "美国载人绕月任务宇航员采访",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "Anthropic GitHub仓库",
       "source": "bilibili",
       "heat": 0
     }
