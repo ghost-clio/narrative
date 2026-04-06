@@ -1,18 +1,18 @@
 {
-  "updated": "2026-04-06T05:51:17Z",
+  "updated": "2026-04-06T07:48:54Z",
   "trends": [
+    {
+      "topic": "青春就是好春光",
+      "source": "bilibili",
+      "heat": 0
+    },
     {
       "topic": "周杰伦爱琴海MV上线",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "库里复出砍29分",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "张雪言论为何引发争议",
+      "topic": "央视军事三百万粉丝了",
       "source": "bilibili",
       "heat": 0
     },
@@ -22,12 +22,17 @@
       "heat": 0
     },
     {
-      "topic": "鲁豫文淇聊恋爱观",
+      "topic": "第二赛段W1各位置NO1",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "伊朗警告美国或封锁曼德海峡反制",
+      "topic": "日本最大规模海上兵力改编",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "鲁豫文淇聊恋爱观",
       "source": "bilibili",
       "heat": 0
     },
@@ -37,22 +42,12 @@
       "heat": 0
     },
     {
-      "topic": "众主播看Bin鳄鱼表演秀",
+      "topic": "东契奇将前往欧洲治疗",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "大道独行",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "BLG vs JDG数据前瞻",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "Tian提前Q闪预判Shanks闪现",
+      "topic": "曝三星DRAM价格将上涨30%",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,17 +57,7 @@
       "heat": 0
     },
     {
-      "topic": "萨德对韩国造成了多大影响",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "张雪机车夺冠背后的中国制造",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "FaZe彻底失去晋级Major机会",
+      "topic": "王楚钦首夺世界杯单打冠军",
       "source": "bilibili",
       "heat": 0
     },
@@ -82,22 +67,37 @@
       "heat": 0
     },
     {
+      "topic": "洛克王国世界刷花攻略",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "萨德对韩国造成了多大影响",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "TES战胜AL赛后数据",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "上学你要来学校MV",
+      "topic": "JDG如何针对世一上",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "王楚钦首夺世界杯单打冠军",
+      "topic": "王者元刺玩法攻略",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "Space X并购xAI目的何在",
+      "topic": "Tian提前Q闪预判Shanks闪现",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "复盘王楚钦如何险胜夺冠",
       "source": "bilibili",
       "heat": 0
     }
