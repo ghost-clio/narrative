@@ -1,13 +1,18 @@
 {
-  "updated": "2026-04-07T06:47:03Z",
+  "updated": "2026-04-07T08:14:41Z",
   "trends": [
+    {
+      "topic": "Faker称已准备好迎战马斯克AI",
+      "source": "bilibili",
+      "heat": 0
+    },
     {
       "topic": "LKs 谁是理财王",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "Faker称已准备好迎战马斯克AI",
+      "topic": "多国央行开始卖黄金了",
       "source": "bilibili",
       "heat": 0
     },
@@ -17,12 +22,7 @@
       "heat": 0
     },
     {
-      "topic": "曝GPT6本月发布",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "中国捏脸史",
+      "topic": "B站UP主们的腿有多长",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,32 +32,32 @@
       "heat": 0
     },
     {
-      "topic": "karrigan谈FaZe困境",
+      "topic": "中专战队挑战BLG无畏契约青训",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "歌剧老师锐评浪姐舞台",
+      "topic": "TYLOO重返全球前30",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "马刺战胜76人收获单赛季60胜",
+      "topic": "曝GPT6本月发布",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "雪山救狐但内娱版",
+      "topic": "美载人绕月任务打破人类历史纪录",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "原神莉奈娅角色预告",
+      "topic": "星铁新角色千冶刃立绘曝光",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "李大霄谈熊猫债发行规模大增",
+      "topic": "百卅交大的前世今生",
       "source": "bilibili",
       "heat": 0
     },
@@ -67,17 +67,7 @@
       "heat": 0
     },
     {
-      "topic": "三角洲S9赛季测试服优化汇总",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "三角洲S9赛季全新子弹解析",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "UP主揭秘高中生摆摊创业套路",
+      "topic": "李大霄谈熊猫债发行规模大增",
       "source": "bilibili",
       "heat": 0
     },
@@ -87,17 +77,27 @@
       "heat": 0
     },
     {
-      "topic": "怎么看球童拿走多纳鲁马小纸条",
+      "topic": "UP主揭秘高中生摆摊创业套路",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "美军飞行员营救行动复盘",
+      "topic": "雪山救狐但内娱版",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "伊朗发布被击落美军机画面",
+      "topic": "电工小谢的逃跑故事",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "西交大 上交一切",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "歌剧老师锐评浪姐舞台",
       "source": "bilibili",
       "heat": 0
     }
