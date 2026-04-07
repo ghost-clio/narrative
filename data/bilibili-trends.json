@@ -1,8 +1,8 @@
 {
-  "updated": "2026-04-07T19:32:28Z",
+  "updated": "2026-04-07T20:26:46Z",
   "trends": [
     {
-      "topic": "四号台风即将生成",
+      "topic": "TEC BLG",
       "source": "bilibili",
       "heat": 0
     },
@@ -12,7 +12,7 @@
       "heat": 0
     },
     {
-      "topic": "天舟十号飞行任务标识正式发布",
+      "topic": "四号台风即将生成",
       "source": "bilibili",
       "heat": 0
     },
@@ -22,7 +22,7 @@
       "heat": 0
     },
     {
-      "topic": "阿尔忒弥斯2号近距离掠过月球画面",
+      "topic": "天舟十号飞行任务标识正式发布",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,32 +32,27 @@
       "heat": 0
     },
     {
+      "topic": "阿尔忒弥斯2号近距离掠过月球画面",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "乘风下半场夯到数不过来",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "刘哔解说无限超越班4",
+      "topic": "吴克群解码吴克穷",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "杀戮尖塔鸡煲之歌",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "TEC BLG",
+      "topic": "芭比大战AI偶像",
       "source": "bilibili",
       "heat": 0
     },
     {
       "topic": "李大霄谈熊猫债发行规模大增",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "陈丽华逝世",
       "source": "bilibili",
       "heat": 0
     },
@@ -72,17 +67,22 @@
       "heat": 0
     },
     {
+      "topic": "刘哔解说无限超越班4",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "曝GPT6本月发布",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "美载人绕月任务打破人类历史纪录",
+      "topic": "鲁豫文淇聊恋爱观",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "鲁豫文淇聊恋爱观",
+      "topic": "美载人绕月任务打破人类历史纪录",
       "source": "bilibili",
       "heat": 0
     },
@@ -97,7 +97,7 @@
       "heat": 0
     },
     {
-      "topic": "华强买瓜但是深度思考",
+      "topic": "浪姐7直播闹剧全盘点",
       "source": "bilibili",
       "heat": 0
     }
