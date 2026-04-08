@@ -1,11 +1,6 @@
 {
-  "updated": "2026-04-08T21:53:18Z",
+  "updated": "2026-04-08T22:42:44Z",
   "trends": [
-    {
-      "topic": "WE TES",
-      "source": "bilibili",
-      "heat": 0
-    },
     {
       "topic": "河南三地曝出巨额数据造假",
       "source": "bilibili",
@@ -17,52 +12,17 @@
       "heat": 0
     },
     {
-      "topic": "浪姐7一公小考速通",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "狂风暴雨将袭江南多省",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "湖北会下大冰雹吗",
+      "topic": "WE TES",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "地平线6首发试玩体验报告",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "UP主做出可以吃的烤红薯拼豆",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "玄界之门",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "大学生首次旷课被抓有感",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "美国年轻人为何被锁死一生",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "​伊朗公布10项停战条款主要内容",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "巴基斯坦证实伊美同意立即停火",
+      "topic": "浪姐7一公小考速通",
       "source": "bilibili",
       "heat": 0
     },
@@ -72,7 +32,32 @@
       "heat": 0
     },
     {
-      "topic": "中专战队挑战BLG无畏契约青训",
+      "topic": "地平线6首发试玩体验报告",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "湖北会下大冰雹吗",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "不能给滥用武力开通行证",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "UP主做出可以吃的烤红薯拼豆",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "美国年轻人为何被锁死一生",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "巴基斯坦证实伊美同意立即停火",
       "source": "bilibili",
       "heat": 0
     },
@@ -82,7 +67,17 @@
       "heat": 0
     },
     {
-      "topic": "李大霄谈熊猫债发行规模大增",
+      "topic": "中专战队挑战BLG无畏契约青训",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "​伊朗公布10项停战条款主要内容",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "电视剧创作要避免颜值流量依赖",
       "source": "bilibili",
       "heat": 0
     },
@@ -92,12 +87,17 @@
       "heat": 0
     },
     {
-      "topic": "华强买瓜但是数学",
+      "topic": "李大霄谈熊猫债发行规模大增",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "电视剧创作要避免颜值流量依赖",
+      "topic": "Claude防话痨插件爆火",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "捷龙三号火箭将在南海海域发射",
       "source": "bilibili",
       "heat": 0
     }
