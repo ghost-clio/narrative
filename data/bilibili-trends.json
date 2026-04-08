@@ -1,18 +1,18 @@
 {
-  "updated": "2026-04-08T08:13:50Z",
+  "updated": "2026-04-08T09:36:35Z",
   "trends": [
+    {
+      "topic": "IG NIP",
+      "source": "bilibili",
+      "heat": 0
+    },
     {
       "topic": "中俄否决安理会涉伊朗决议草案",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "伯纳乌现场观战欧洲德比",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "康康登顶VCT历史击杀数排行",
+      "topic": "XLG NOVA",
       "source": "bilibili",
       "heat": 0
     },
@@ -22,17 +22,22 @@
       "heat": 0
     },
     {
+      "topic": "中国小电驴火爆东南亚",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "巴基斯坦为何能够成功斡旋",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "郑丽文率国民党访问团拜谒中山陵",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "停火协议达成如何影响股市",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "烽火联赛春季赛",
+      "topic": "UP主完美复刻网红抹茶大饼",
       "source": "bilibili",
       "heat": 0
     },
@@ -42,17 +47,7 @@
       "heat": 0
     },
     {
-      "topic": "詹姆斯缺战雷霆",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "8小时实测GLM-5.1",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "光伏产品出口退税为何取消",
+      "topic": "停火协议达成如何影响股市",
       "source": "bilibili",
       "heat": 0
     },
@@ -67,12 +62,17 @@
       "heat": 0
     },
     {
+      "topic": "中专战队挑战BLG无畏契约青训",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "李大霄谈熊猫债发行规模大增",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "中专战队挑战BLG无畏契约青训",
+      "topic": "光伏产品出口退税为何取消",
       "source": "bilibili",
       "heat": 0
     },
@@ -82,22 +82,22 @@
       "heat": 0
     },
     {
+      "topic": "詹姆斯缺战雷霆",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "浪姐16小时看点全盘点",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "伊朗民众组人链保护发电厂和桥梁",
+      "topic": "拜仁客场击败皇马",
       "source": "bilibili",
       "heat": 0
     },
     {
       "topic": "Claude防话痨插件爆火",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "拜仁客场击败皇马",
       "source": "bilibili",
       "heat": 0
     }
