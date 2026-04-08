@@ -1,8 +1,18 @@
 {
-  "updated": "2026-04-08T02:42:44Z",
+  "updated": "2026-04-08T05:02:32Z",
   "trends": [
     {
       "topic": "拜仁客场击败皇马",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "DeepSeek更新专家模式",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "人民日报专访赵心童",
       "source": "bilibili",
       "heat": 0
     },
@@ -12,17 +22,7 @@
       "heat": 0
     },
     {
-      "topic": "Donk还有机会竞争今年Top1吗",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "葡萄牙体育0-1阿森纳",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "中国U20女足亚洲杯小组出线",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,32 +32,22 @@
       "heat": 0
     },
     {
-      "topic": "原油期货暴跌超15%",
+      "topic": "玄界之门",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "四号台风即将生成",
+      "topic": "全红婵所在训练中心已报警",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "思文李艺彤聊30岁",
+      "topic": "UP主解读Claude新模型Mythos",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "数据角度找NBA最强新秀",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "特朗普在什么情况下同意停火",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "伊朗目前听不到爆炸声和战机声",
+      "topic": "s1mple无缘PGL布加勒斯特八强",
       "source": "bilibili",
       "heat": 0
     },
@@ -67,7 +57,7 @@
       "heat": 0
     },
     {
-      "topic": "巴基斯坦证实伊美同意立即停火",
+      "topic": "李大霄谈熊猫债发行规模大增",
       "source": "bilibili",
       "heat": 0
     },
@@ -77,12 +67,12 @@
       "heat": 0
     },
     {
-      "topic": "中专战队挑战BLG无畏契约青训",
+      "topic": "巴基斯坦证实伊美同意立即停火",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "李大霄谈熊猫债发行规模大增",
+      "topic": "中专战队挑战BLG无畏契约青训",
       "source": "bilibili",
       "heat": 0
     },
@@ -92,12 +82,22 @@
       "heat": 0
     },
     {
-      "topic": "华强买瓜但是深度思考",
+      "topic": "王者荣耀世界PC端预下载开启",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "王者荣耀世界PC端预下载开启",
+      "topic": "三角洲S9赛季测试服优化汇总",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "Claude防话痨插件爆火",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "LKs 谁是理财王",
       "source": "bilibili",
       "heat": 0
     }
