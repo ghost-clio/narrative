@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-11T11:02:50Z",
+  "updated": "2026-04-11T11:46:20Z",
   "trends": [
     {
       "topic": "KPL",
@@ -12,7 +12,7 @@
       "heat": 0
     },
     {
-      "topic": "格致科学传播奖",
+      "topic": "2026苏超开赛",
       "source": "bilibili",
       "heat": 0
     },
@@ -22,7 +22,12 @@
       "heat": 0
     },
     {
-      "topic": "IG WE",
+      "topic": "JDG TES",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "浪姐一公直播陪看",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,7 +37,47 @@
       "heat": 0
     },
     {
-      "topic": "浪姐7一公reaction",
+      "topic": "格致科学传播奖",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "如何评价浪姐7一公",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "华强买瓜但是相对论",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "三角洲行动回声新赛季前瞻直播",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "COA",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "IG WE",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "2026苏超前瞻",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "警方通报全红婵遭网暴事件",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "单依纯想你时风起大合唱",
       "source": "bilibili",
       "heat": 0
     },
@@ -42,12 +87,7 @@
       "heat": 0
     },
     {
-      "topic": "浪姐一公争议复盘",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "苏超新赛季今晚开踢",
+      "topic": "永生",
       "source": "bilibili",
       "heat": 0
     },
@@ -58,46 +98,6 @@
     },
     {
       "topic": "赖神棉花鬼叔连麦解说KPL",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "全网超快翻唱天生鬼才",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "警方通报全红婵遭网暴事件",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "2026苏超前瞻",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "COA",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "三角洲行动回声新赛季前瞻直播",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "如何评价浪姐7一公",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "单依纯想你时风起大合唱",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "锐评黑袍纠察队5",
       "source": "bilibili",
       "heat": 0
     }
