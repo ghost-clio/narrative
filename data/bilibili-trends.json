@@ -1,18 +1,18 @@
 {
-  "updated": "2026-04-11T08:55:08Z",
+  "updated": "2026-04-11T09:43:41Z",
   "trends": [
     {
-      "topic": "COA",
+      "topic": "IG WE",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "烽火联赛春季赛",
+      "topic": "KPL",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "华强买瓜但殷商卜辞",
+      "topic": "60系显卡爆料",
       "source": "bilibili",
       "heat": 0
     },
@@ -27,7 +27,7 @@
       "heat": 0
     },
     {
-      "topic": "TES能否三连胜",
+      "topic": "郑丽文访陆释放了什么信号",
       "source": "bilibili",
       "heat": 0
     },
@@ -37,22 +37,7 @@
       "heat": 0
     },
     {
-      "topic": "湖人锁定西部前四",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "60系显卡爆料",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "浪姐舞台一半一半对耳朵很好",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "全网超快翻唱天生鬼才",
+      "topic": "华强买瓜但殷商卜辞",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,12 +47,12 @@
       "heat": 0
     },
     {
-      "topic": "浪姐一公争议复盘",
+      "topic": "COA",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "警方通报全红婵遭网暴事件",
+      "topic": "全网超快翻唱天生鬼才",
       "source": "bilibili",
       "heat": 0
     },
@@ -77,12 +62,17 @@
       "heat": 0
     },
     {
-      "topic": "永生",
+      "topic": "警方通报全红婵遭网暴事件",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "华强买瓜 但是苦命鸳鸯",
+      "topic": "锐评黑袍纠察队5",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "单依纯想你时风起大合唱",
       "source": "bilibili",
       "heat": 0
     },
@@ -92,7 +82,17 @@
       "heat": 0
     },
     {
-      "topic": "锐评黑袍纠察队5",
+      "topic": "华强买瓜 但是苦命鸳鸯",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "永生",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "湖人锁定西部前四",
       "source": "bilibili",
       "heat": 0
     },
