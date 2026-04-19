@@ -1,13 +1,8 @@
 {
-  "updated": "2026-04-19T19:23:32Z",
+  "updated": "2026-04-19T20:00:31Z",
   "trends": [
     {
-      "topic": "Spirit Vitality",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "世界周刊之登月暗战",
+      "topic": "TES战胜IG赛后数据",
       "source": "bilibili",
       "heat": 0
     },
@@ -17,7 +12,12 @@
       "heat": 0
     },
     {
-      "topic": "TES战胜IG赛后数据",
+      "topic": "世界周刊之登月暗战",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "TEC TE",
       "source": "bilibili",
       "heat": 0
     },
@@ -47,7 +47,7 @@
       "heat": 0
     },
     {
-      "topic": "霍尔木兹海峡 开了又关了",
+      "topic": "西班牙为何选在此时访华",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,22 +62,27 @@
       "heat": 0
     },
     {
+      "topic": "浪姐二公小考解说",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "IG TES",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "西班牙为何选在此时访华",
+      "topic": "终末地上线百日复盘",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "TEC TE",
+      "topic": "AG XLG",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "浪姐二公小考解说",
+      "topic": "霍尔木兹海峡 开了又关了",
       "source": "bilibili",
       "heat": 0
     },
@@ -93,11 +98,6 @@
     },
     {
       "topic": "一季度经济增长5%的背后",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "浪姐1为什么至今仍口碑不倒",
       "source": "bilibili",
       "heat": 0
     }
