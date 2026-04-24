@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-24T17:59:39Z",
+  "updated": "2026-04-24T19:07:28Z",
   "trends": [
     {
       "topic": "DeepSeek V4 Pro实测",
@@ -17,12 +17,12 @@
       "heat": 0
     },
     {
-      "topic": "给全校师生朗诵病梅馆记",
+      "topic": "BLG全员超长对谈",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "BLG全员超长对谈",
+      "topic": "给全校师生朗诵病梅馆记",
       "source": "bilibili",
       "heat": 0
     },
@@ -37,37 +37,7 @@
       "heat": 0
     },
     {
-      "topic": "DeepSeek V4揭开AI内卷终局",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "心理学分析孙杨新综争议",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "科学老师发射手工水火箭",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "安峥蔷庄唱跳舞台",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "华强买瓜但琼瑶剧",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "华强买瓜 但多语症",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "当机器人的脚变成轮子",
       "source": "bilibili",
       "heat": 0
     },
@@ -77,12 +47,32 @@
       "heat": 0
     },
     {
-      "topic": "腹有视频气自滑",
+      "topic": "心理学分析孙杨新综争议",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "万字回顾DeepSeek演进之路",
+      "topic": "异环玩法有何独特之处",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "DeepSeek V4揭开AI内卷终局",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "解放西真实刑警故事",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "安峥蔷庄唱跳舞台",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "华强买瓜 但多语症",
       "source": "bilibili",
       "heat": 0
     },
@@ -92,12 +82,22 @@
       "heat": 0
     },
     {
-      "topic": "UP主深度测试华为大阔折",
+      "topic": "当机器人的脚变成轮子",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "解放西真实刑警故事",
+      "topic": "腹有视频气自滑",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "DeepSeekV4预览版本上线",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "UP主深度测试华为大阔折",
       "source": "bilibili",
       "heat": 0
     }
