@@ -1,8 +1,18 @@
 {
-  "updated": "2026-04-25T06:46:21Z",
+  "updated": "2026-04-25T08:05:57Z",
   "trends": [
     {
+      "topic": "KSG 广州TTG",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
       "topic": "湖人3-0火箭",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "UP主手搓中恐无限流大电影",
       "source": "bilibili",
       "heat": 0
     },
@@ -17,16 +27,6 @@
       "heat": 0
     },
     {
-      "topic": "KSG 广州TTG",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "Claude降智了吗",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
       "topic": "泸州楼房倒塌多人坠落系谣言",
       "source": "bilibili",
       "heat": 0
@@ -37,12 +37,12 @@
       "heat": 0
     },
     {
-      "topic": "DeepSeek如何适配国产芯片",
+      "topic": "Claude降智了吗",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "UP主手搓中恐无限流大电影",
+      "topic": "DeepSeek如何适配国产芯片",
       "source": "bilibili",
       "heat": 0
     },
@@ -52,17 +52,32 @@
       "heat": 0
     },
     {
-      "topic": "被白嫖的书店为何能赚百亿",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "量子场论有什么用",
+      "topic": "对对子战神",
       "source": "bilibili",
       "heat": 0
     },
     {
       "topic": "陶昕然浪姐淘汰",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "给全校师生朗诵病梅馆记",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "解析特朗普与教皇冲突",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "心理学分析孙杨新综争议",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "UP主深度测试华为大阔折",
       "source": "bilibili",
       "heat": 0
     },
@@ -77,27 +92,12 @@
       "heat": 0
     },
     {
-      "topic": "给全校师生朗诵病梅馆记",
+      "topic": "被白嫖的书店为何能赚百亿",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "华强买瓜但琼瑶剧",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "解析特朗普与教皇冲突",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "科学老师发射手工水火箭",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "UP主深度测试华为大阔折",
+      "topic": "量子场论有什么用",
       "source": "bilibili",
       "heat": 0
     }
