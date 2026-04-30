@@ -1,13 +1,13 @@
 {
-  "updated": "2026-04-30T19:56:34Z",
+  "updated": "2026-04-30T21:08:14Z",
   "trends": [
     {
-      "topic": "EDG UP",
+      "topic": "BLAST沃斯堡对抗赛",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "BLAST沃斯堡对抗赛",
+      "topic": "黑夜告白值得追吗",
       "source": "bilibili",
       "heat": 0
     },
@@ -17,7 +17,7 @@
       "heat": 0
     },
     {
-      "topic": "假如AI能模拟去世亲人",
+      "topic": "EDG UP",
       "source": "bilibili",
       "heat": 0
     },
@@ -32,12 +32,7 @@
       "heat": 0
     },
     {
-      "topic": "黑夜告白值得追吗",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "ILLIT新歌MV",
+      "topic": "假如AI能模拟去世亲人",
       "source": "bilibili",
       "heat": 0
     },
@@ -47,12 +42,22 @@
       "heat": 0
     },
     {
-      "topic": "赖导探访孤城茫崖",
+      "topic": "ILLIT新歌MV",
       "source": "bilibili",
       "heat": 0
     },
     {
-      "topic": "鸣潮绯雪攻略",
+      "topic": "假如印度翻拍仙剑三",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "怪猎手游二测测评",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "TT LGD",
       "source": "bilibili",
       "heat": 0
     },
@@ -62,7 +67,12 @@
       "heat": 0
     },
     {
-      "topic": "证监会原主席易会满被双开",
+      "topic": "鸣潮绯雪攻略",
+      "source": "bilibili",
+      "heat": 0
+    },
+    {
+      "topic": "赖导探访孤城茫崖",
       "source": "bilibili",
       "heat": 0
     },
@@ -72,7 +82,7 @@
       "heat": 0
     },
     {
-      "topic": "华为Pura 90系列影像表现实测",
+      "topic": "证监会原主席易会满被双开",
       "source": "bilibili",
       "heat": 0
     },
@@ -87,17 +97,7 @@
       "heat": 0
     },
     {
-      "topic": "浪7学三大争议盘点",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "飞驰人生3",
-      "source": "bilibili",
-      "heat": 0
-    },
-    {
-      "topic": "定格动画还原MJ名场面",
+      "topic": "华为Pura 90系列影像表现实测",
       "source": "bilibili",
       "heat": 0
     }
